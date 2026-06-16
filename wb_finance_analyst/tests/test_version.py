@@ -15,5 +15,5 @@ def test_release_archive_name_uses_app_version():
 
 def test_download_page_points_to_github_releases():
     assert DOWNLOAD_PAGE_URL == "https://github.com/mdorovn-ux/wb_analist/releases"
-    assert LATEST_VERSION_URL == "https://raw.githubusercontent.com/mdorovn-ux/wb_analist/main/latest.json"
+    assert LATEST_VERSION_URL == "https://github.com/mdorovn-ux/wb_analist/releases/latest/download/latest.json"
     assert SUPPORT_EMAIL == "m.dorov.n@gmail.com"

@@ -36,7 +36,30 @@ releases/WB-analyst-v1.0.zip
 Прямая ссылка для сайта:
 
 ```text
-https://raw.githubusercontent.com/mdorovn-ux/wb_analist/main/releases/WB-analyst-v1.0.zip
+https://github.com/mdorovn-ux/wb_analist/releases/download/v1.0/WB-analyst-v1.0.zip
+```
+
+## GitHub Release
+
+Готовые ZIP-сборки публикуются через GitHub Releases, а не через raw-файлы в репозитории.
+Для публикации релиза нужен авторизованный GitHub CLI:
+
+```powershell
+gh auth login
+.\tools\create_github_release.ps1
+```
+
+Скрипт для v1.0 прикрепляет к релизу:
+
+```text
+releases/WB-analyst-v1.0.zip
+latest.json
+```
+
+Для будущей версии можно передать другой тег и архив:
+
+```powershell
+.\tools\create_github_release.ps1 -Tag "v1.1.0" -ArchivePath "releases/WB-analyst-v1.1.0.zip" -Title "WB analyst v1.1.0"
 ```
 
 ## Локальный запуск приложения

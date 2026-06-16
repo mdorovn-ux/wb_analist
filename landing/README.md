@@ -38,7 +38,17 @@ releases/WB-analyst-v1.0.zip
 Сайт скачивает архив по ссылке:
 
 ```text
-https://raw.githubusercontent.com/mdorovn-ux/wb_analist/main/releases/WB-analyst-v1.0.zip
+https://github.com/mdorovn-ux/wb_analist/releases/download/v1.0/WB-analyst-v1.0.zip
 ```
+
+## Обновление ссылки скачивания
+
+ZIP-архивы программы публикуются через GitHub Releases. После сборки новой версии прикрепите архив и `latest.json` командой:
+
+```powershell
+.\tools\create_github_release.ps1 -Tag "v1.1.0" -ArchivePath "releases/WB-analyst-v1.1.0.zip" -Title "WB analyst v1.1.0"
+```
+
+После этого обновите ссылку скачивания и текст версии в `landing/public/index.html`.
 
 Если выходит новая версия, замените zip-файл в `releases`, затем обновите ссылку/текст версии на странице.
