@@ -71,7 +71,7 @@ a {
 }
 
 .hero {
-  min-height: calc(100vh - 72px);
+  min-height: min(720px, calc(100vh - 132px));
   position: relative;
   display: grid;
   align-items: center;
@@ -251,6 +251,8 @@ h3 {
 }
 
 .feature-grid p,
+.release-grid span,
+.notice-grid p,
 .steps p,
 .download p {
   color: var(--muted);
@@ -284,6 +286,36 @@ h3 {
   background: var(--green);
   border-radius: 50%;
   font-weight: 800;
+}
+
+.release-grid,
+.notice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.release-grid article,
+.notice-grid p {
+  min-height: 126px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.release-grid b,
+.release-grid span {
+  display: block;
+}
+
+.release-grid b {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.notice-grid p {
+  margin: 0;
 }
 
 .download {
@@ -323,6 +355,8 @@ h3 {
 
   .metrics,
   .feature-grid,
+  .release-grid,
+  .notice-grid,
   .steps {
     grid-template-columns: 1fr;
   }
