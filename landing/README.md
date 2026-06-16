@@ -2,15 +2,15 @@
 
 Одностраничный сайт для WB analyst. Лендинг показывает ценность программы, объясняет установку и ведет на ZIP-архив из GitHub Releases.
 
-Текущая версия разработки: `1.1.0-dev`.
+Текущая стабильная версия: `1.1.0`.
 
 Стабильная ссылка скачивания:
 
 ```text
-https://github.com/mdorovn-ux/wb_analist/releases/download/v1.0/WB-analyst-v1.0.zip
+https://github.com/mdorovn-ux/wb_analist/releases/download/v1.1.0/WB-analyst-v1.1.0.zip
 ```
 
-Важно: если репозиторий GitHub приватный, публичная кнопка скачивания будет получать `404`. Для внешних пользователей релизные файлы должны быть доступны публично.
+Релизные файлы публикуются в GitHub Releases и доступны пользователям по публичной ссылке.
 
 ## Локальный запуск
 
@@ -43,14 +43,14 @@ http://localhost:3000
 2. Упакуйте папку приложения в ZIP, например:
 
 ```text
-releases/WB-analyst-v1.1.0.zip
+releases/WB-analyst-v1.2.0.zip
 ```
 
 3. Обновите `latest.json` в корне проекта.
 4. Опубликуйте GitHub Release:
 
 ```powershell
-.\tools\create_github_release.ps1 -Tag "v1.1.0" -ArchivePath "releases/WB-analyst-v1.1.0.zip" -Title "WB analyst v1.1.0"
+.\tools\create_github_release.ps1 -Tag "v1.2.0" -ArchivePath "releases/WB-analyst-v1.2.0.zip" -Title "WB analyst v1.2.0"
 ```
 
 5. В `landing/public/index.html` обновите:
@@ -83,4 +83,4 @@ npm start
 - кнопка скачивания ведет на GitHub Releases;
 - на мобильной ширине текст не вылезает из блоков;
 - блок установки и предупреждения видны без лишнего поиска;
-- публичная ссылка скачивания не возвращает `404`, если сайт предназначен для внешних пользователей.
+- публичная ссылка скачивания открывает ZIP-архив из GitHub Releases.

@@ -2,9 +2,9 @@
 
 WB analyst - desktop-приложение для селлеров Wildberries. Программа загружает финансовые отчеты WB, сверяет суммы с кабинетом, считает прибыль, рекламу, себестоимость, налоги, внешние расходы и сохраняет Excel-отчет.
 
-Текущая версия разработки: `1.1.0-dev`.
+Текущая стабильная версия: `1.1.0`.
 
-Стабильный релиз: `v1.0`.
+Стабильный релиз: `v1.1.0`.
 
 ## Структура
 
@@ -21,10 +21,10 @@ tools/                Скрипты публикации релизов
 Стабильная сборка опубликована в GitHub Releases:
 
 ```text
-https://github.com/mdorovn-ux/wb_analist/releases/download/v1.0/WB-analyst-v1.0.zip
+https://github.com/mdorovn-ux/wb_analist/releases/download/v1.1.0/WB-analyst-v1.1.0.zip
 ```
 
-Важно: если репозиторий GitHub остается приватным, публичное скачивание с лендинга и проверка обновлений у пользователей будут получать `404`. Для продаж репозиторий или хостинг релизных файлов должен быть публичным.
+Релизные ZIP-архивы публикуются в GitHub Releases и доступны по публичной ссылке.
 
 ## Локальный запуск приложения
 
@@ -76,7 +76,7 @@ gh auth login
 Для будущей версии:
 
 ```powershell
-.\tools\create_github_release.ps1 -Tag "v1.1.0" -ArchivePath "releases/WB-analyst-v1.1.0.zip" -Title "WB analyst v1.1.0"
+.\tools\create_github_release.ps1 -Tag "v1.2.0" -ArchivePath "releases/WB-analyst-v1.2.0.zip" -Title "WB analyst v1.2.0"
 ```
 
 Скрипт прикрепляет к релизу ZIP-архив и `latest.json`. После публикации обновите `latest.json`, landing и README под новую стабильную версию.

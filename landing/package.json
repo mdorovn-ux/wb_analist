@@ -1,6 +1,6 @@
 {
   "name": "wb-analyst-landing",
-  "version": "1.1.0-dev",
+  "version": "1.1.0",
   "private": true,
   "description": "Landing page for WB analyst",
   "scripts": {
