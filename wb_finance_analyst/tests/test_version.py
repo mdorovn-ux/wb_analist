@@ -1,6 +1,6 @@
 from wb_finance_analyst import __version__
 from wb_finance_analyst.domain.constants import APP_VERSION as CONSTANTS_APP_VERSION
-from wb_finance_analyst.version import APP_VERSION, RELEASE_ARCHIVE_NAME
+from wb_finance_analyst.version import APP_VERSION, DOWNLOAD_PAGE_URL, RELEASE_ARCHIVE_NAME
 
 
 def test_version_is_defined_once_for_public_imports():
@@ -12,3 +12,6 @@ def test_version_is_defined_once_for_public_imports():
 def test_release_archive_name_uses_app_version():
     assert RELEASE_ARCHIVE_NAME == f"WB-analyst-v{APP_VERSION}.zip"
 
+
+def test_download_page_points_to_github_releases():
+    assert DOWNLOAD_PAGE_URL == "https://github.com/mdorovn-ux/wb_analist/releases"

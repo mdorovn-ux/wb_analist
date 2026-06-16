@@ -1,4 +1,5 @@
 APP_VERSION = "1.1.0-dev"
 APP_VERSION_TAG = f"v{APP_VERSION}"
 RELEASE_ARCHIVE_NAME = f"WB-analyst-v{APP_VERSION}.zip"
-
+DOWNLOAD_PAGE_URL = "https://github.com/mdorovn-ux/wb_analist/releases"
+LANDING_URL = "https://github.com/mdorovn-ux/wb_analist/tree/main/landing"

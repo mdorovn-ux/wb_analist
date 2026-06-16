@@ -5,6 +5,7 @@ from PySide6.QtWidgets import QFrame, QHBoxLayout, QLabel, QMainWindow, QPushBut
 
 from wb_finance_analyst.config.defaults import APP_ICON_PATH
 from wb_finance_analyst.config.settings import SettingsStore
+from wb_finance_analyst.ui.about_dialog import AboutDialog
 from wb_finance_analyst.ui.auto_report_page import AutoReportPage
 from wb_finance_analyst.ui.costs_page import CostsPage
 from wb_finance_analyst.ui.dashboard_page import DashboardPage
@@ -87,6 +88,10 @@ class MainWindow(QMainWindow):
         side_layout.addStretch(1)
         for button in support_buttons:
             side_layout.addWidget(button)
+        about_button = QPushButton("О программе")
+        about_button.setObjectName("NavButton")
+        about_button.clicked.connect(self.open_about)
+        side_layout.addWidget(about_button)
         layout.addWidget(sidebar)
         layout.addWidget(self.stack, 1)
         self.setCentralWidget(root)
@@ -106,6 +111,9 @@ class MainWindow(QMainWindow):
 
     def open_settings(self) -> None:
         SettingsDialog(self.settings_store.load(), self).exec()
+
+    def open_about(self) -> None:
+        AboutDialog(self).exec()
 
     def closeEvent(self, event) -> None:
         for page in self._pages:
