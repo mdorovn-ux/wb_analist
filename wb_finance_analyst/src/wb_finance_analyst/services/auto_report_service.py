@@ -30,6 +30,7 @@ from wb_finance_analyst.services.wb_finance_api import (
 )
 from wb_finance_analyst.services.wb_finance_calculator import WBFinanceCalculator
 from wb_finance_analyst.services.wb_promotion_api import WBPromotionAPI
+from wb_finance_analyst.version import APP_VERSION
 
 
 API_COLUMN_MAP = ColumnMap(
@@ -582,6 +583,7 @@ class AutoReportService:
         detail_from = summary_df.attrs.get("detail_date_from") if summary_df is not None else ""
         detail_to = summary_df.attrs.get("detail_date_to") if summary_df is not None else ""
         rows = [
+                {"Настройка": "Версия приложения", "Значение": APP_VERSION},
                 {"Настройка": "Период", "Значение": f"{date_from.isoformat()} - {date_to.isoformat()}"},
                 {"Настройка": "Фактический период детализации WB", "Значение": f"{detail_from} - {detail_to}" if detail_from and detail_to else f"{date_from.isoformat()} - {date_to.isoformat()}"},
                 {"Настройка": "Выбранный тип отчета", "Значение": report_kind},

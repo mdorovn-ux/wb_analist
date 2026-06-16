@@ -1,6 +1,7 @@
 APP_NAME = "WB analyst"
 LEGACY_APP_NAME = "WB Finance Analyst"
-APP_VERSION = "0.1.0"
+
+from wb_finance_analyst.version import APP_VERSION
 
 TECH_SHEETS = [
     "_DATA_SUMMARY",

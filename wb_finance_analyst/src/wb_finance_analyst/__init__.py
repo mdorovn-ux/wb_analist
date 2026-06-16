@@ -1,1 +1,3 @@
-__version__ = "0.1.0"
+from wb_finance_analyst.version import APP_VERSION
+
+__version__ = APP_VERSION

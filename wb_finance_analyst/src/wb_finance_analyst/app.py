@@ -35,6 +35,7 @@ def main() -> int:
         from wb_finance_analyst.ui.styles import apply_styles
         from wb_finance_analyst.config.defaults import APP_ICON_PATH
         from wb_finance_analyst.services.license_manager import LicenseManager
+        from wb_finance_analyst.version import APP_VERSION
     except ImportError as exc:
         print("Для запуска интерфейса установите зависимости: pip install -r requirements.txt")
         print(f"Техническая причина: {exc}")
@@ -43,6 +44,7 @@ def main() -> int:
     try:
         app = QApplication(sys.argv)
         app.setApplicationName("WB analyst")
+        app.setApplicationVersion(APP_VERSION)
         app.setWindowIcon(QIcon(str(APP_ICON_PATH)))
         apply_styles(app)
         license_manager = LicenseManager()

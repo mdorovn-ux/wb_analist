@@ -13,12 +13,13 @@ from wb_finance_analyst.ui.logs_page import LogsPage
 from wb_finance_analyst.ui.merge_reports_page import MergeReportsPage
 from wb_finance_analyst.ui.new_report_page import NewReportPage
 from wb_finance_analyst.ui.settings_dialog import SettingsDialog
+from wb_finance_analyst.version import APP_VERSION
 
 
 class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
-        self.setWindowTitle("WB analyst")
+        self.setWindowTitle(f"WB analyst {APP_VERSION}")
         self.setWindowIcon(QIcon(str(APP_ICON_PATH)))
         self.setMinimumSize(1400, 900)
         self.settings_store = SettingsStore()
