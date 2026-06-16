@@ -21,7 +21,7 @@ releases/WB-analyst-v1.0.zip
 Прямая ссылка для сайта:
 
 ```text
-https://github.com/mdorovn-ux/wb_analist/raw/main/releases/WB-analyst-v1.0.zip
+https://raw.githubusercontent.com/mdorovn-ux/wb_analist/main/releases/WB-analyst-v1.0.zip
 ```
 
 ## Локальный запуск приложения

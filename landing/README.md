@@ -36,7 +36,7 @@ releases/WB-analyst-v1.0.zip
 Сайт скачивает архив по ссылке:
 
 ```text
-https://github.com/mdorovn-ux/wb_analist/raw/main/releases/WB-analyst-v1.0.zip
+https://raw.githubusercontent.com/mdorovn-ux/wb_analist/main/releases/WB-analyst-v1.0.zip
 ```
 
 Если выходит новая версия, замените zip-файл в `releases`, затем обновите ссылку/текст версии на странице.
