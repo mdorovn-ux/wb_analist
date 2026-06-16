@@ -152,7 +152,10 @@ class AboutDialog(QDialog):
     @Slot(str)
     def _on_update_failed(self, message: str) -> None:
         self.check_update_button.setEnabled(True)
-        self.update_status.setText(f"Не удалось проверить обновление: {message}")
+        if message.startswith("Не удалось"):
+            self.update_status.setText(message)
+        else:
+            self.update_status.setText(f"Не удалось проверить обновление: {message}")
 
     @Slot()
     def _clear_update_refs(self) -> None:

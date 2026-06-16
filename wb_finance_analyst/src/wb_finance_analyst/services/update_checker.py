@@ -1,12 +1,18 @@
 from __future__ import annotations
 
+import base64
+import json
 import re
 from dataclasses import dataclass
 from typing import Any
 
 import requests
+from requests import RequestException
 
 from wb_finance_analyst.version import APP_VERSION, LATEST_VERSION_URL
+
+GITHUB_CONTENTS_LATEST_URL = "https://api.github.com/repos/mdorovn-ux/wb_analist/contents/latest.json?ref=main"
+UPDATE_CHECK_TIMEOUT = (4, 15)
 
 
 @dataclass(frozen=True)
@@ -19,12 +25,60 @@ class UpdateInfo:
     message: str
 
 
+class UpdateCheckError(RuntimeError):
+    pass
+
+
 def check_for_updates(current_version: str = APP_VERSION, url: str = LATEST_VERSION_URL) -> UpdateInfo:
-    response = requests.get(url, timeout=(2, 5))
+    payload = _load_latest_payload(url)
+    return update_info_from_payload(payload, current_version=current_version)
+
+
+def _load_latest_payload(url: str) -> dict[str, Any]:
+    urls = [url]
+    if url == LATEST_VERSION_URL:
+        urls.append(GITHUB_CONTENTS_LATEST_URL)
+
+    last_error: Exception | None = None
+    for current_url in urls:
+        try:
+            return _request_latest_payload(current_url)
+        except (RequestException, ValueError, KeyError, json.JSONDecodeError) as exc:
+            last_error = exc
+
+    raise UpdateCheckError(
+        "Не удалось проверить обновление. Проверьте интернет или откройте страницу скачивания вручную."
+    ) from last_error
+
+
+def _request_latest_payload(url: str) -> dict[str, Any]:
+    response = requests.get(
+        url,
+        timeout=UPDATE_CHECK_TIMEOUT,
+        headers={
+            "Accept": "application/json",
+            "User-Agent": "WB-analyst-update-check",
+        },
+    )
     response.raise_for_status()
     payload = response.json()
     if not isinstance(payload, dict):
         raise ValueError("latest.json must contain an object")
+
+    if "version" in payload:
+        return payload
+
+    if payload.get("encoding") == "base64" and payload.get("content"):
+        content = base64.b64decode(str(payload["content"])).decode("utf-8")
+        decoded_payload = json.loads(content)
+        if not isinstance(decoded_payload, dict):
+            raise ValueError("latest.json must contain an object")
+        return decoded_payload
+
+    raise ValueError("latest.json does not contain version")
+
+
+def update_info_from_payload(payload: dict[str, Any], current_version: str = APP_VERSION) -> UpdateInfo:
     latest_version = str(payload.get("version") or "").strip()
     download_url = str(payload.get("download_url") or "").strip()
     notes_url = str(payload.get("notes_url") or "").strip()
@@ -58,18 +112,3 @@ def _version_key(value: str) -> tuple[tuple[int, int, int], int, str]:
     numbers = (int(major or 0), int(minor or 0), int(patch or 0))
     release_weight = 1 if not suffix else 0
     return numbers, release_weight, suffix or ""
-
-
-def update_info_from_payload(payload: dict[str, Any], current_version: str = APP_VERSION) -> UpdateInfo:
-    latest_version = str(payload.get("version") or "").strip()
-    download_url = str(payload.get("download_url") or "").strip()
-    notes_url = str(payload.get("notes_url") or "").strip()
-    update_available = is_version_newer(latest_version, current_version)
-    return UpdateInfo(
-        current_version=current_version,
-        latest_version=latest_version,
-        update_available=update_available,
-        download_url=download_url,
-        notes_url=notes_url,
-        message=f"Доступна новая версия {latest_version}." if update_available else "Установлена актуальная версия.",
-    )
