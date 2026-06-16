@@ -8,6 +8,9 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+if (Get-Variable -Name PSNativeCommandUseErrorActionPreference -ErrorAction SilentlyContinue) {
+    $PSNativeCommandUseErrorActionPreference = $false
+}
 
 function Resolve-RequiredPath {
     param([string]$PathToCheck)
@@ -47,8 +50,12 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $releaseExists = $false
+$previousErrorActionPreference = $ErrorActionPreference
+$ErrorActionPreference = "SilentlyContinue"
 gh release view $Tag *> $null
-if ($LASTEXITCODE -eq 0) {
+$releaseViewExitCode = $LASTEXITCODE
+$ErrorActionPreference = $previousErrorActionPreference
+if ($releaseViewExitCode -eq 0) {
     $releaseExists = $true
 }
 

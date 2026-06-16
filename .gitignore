@@ -28,6 +28,7 @@ wb_finance_analyst/dist/
 node_modules/
 npm-debug.log*
 
-# Release assets kept intentionally
+# Release assets are published through GitHub Releases
+releases/*.zip
 !releases/
-!releases/*.zip
+!releases/README.md
