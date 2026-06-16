@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Build outputs
+wb_finance_analyst/build/
+wb_finance_analyst/dist/
+*.spec
+!wb_finance_analyst/WB analyst v1.0.spec
+
+# Local reports and temporary files
+Тест/
+*.xlsx
+*.xlsm
+*.xls
+~$*
+
+# Runtime/user data
+*.log
+*.tmp
+.env
+.env.*
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Release assets kept intentionally
+!releases/
+!releases/*.zip

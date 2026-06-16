@@ -1,0 +1,20 @@
+[project]
+name = "wb-finance-analyst"
+version = "0.1.0"
+description = "Desktop analyst for Wildberries finance reports"
+requires-python = ">=3.11"
+dependencies = [
+    "PySide6",
+    "pandas",
+    "openpyxl",
+    "pydantic",
+    "platformdirs",
+    "python-dateutil",
+    "numpy",
+    "requests",
+    "keyring",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

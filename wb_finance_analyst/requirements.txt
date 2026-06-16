@@ -1,0 +1,10 @@
+PySide6
+pandas
+openpyxl
+pydantic
+platformdirs
+python-dateutil
+numpy
+pytest
+requests
+keyring

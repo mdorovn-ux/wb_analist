@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WB analyst - автоотчеты и прибыль Wildberries</title>
+    <meta
+      name="description"
+      content="WB analyst помогает селлерам Wildberries быстро сверять финансовые отчеты, считать прибыль, налоги, расходы, рекламу и сохранять Excel."
+    />
+    <link rel="icon" href="/assets/logo.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="WB analyst">
+        <img src="/assets/logo.svg" alt="" />
+        <span>WB analyst</span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#features">Функции</a>
+        <a href="#workflow">Как работает</a>
+        <a href="#download">Скачать</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero__content">
+          <p class="eyebrow">Desktop-приложение для селлеров Wildberries</p>
+          <h1>WB analyst</h1>
+          <p class="hero__lead">
+            Загружайте финансовые отчеты WB, сверяйте цифры с кабинетом, считайте чистую прибыль,
+            рекламу, себестоимость, налоги и выгружайте аккуратный Excel.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="https://github.com/mdorovn-ux/wb_analist/raw/main/releases/WB-analyst-v1.0.zip">Скачать v1.0</a>
+            <a class="button button--secondary" href="#features">Посмотреть функции</a>
+          </div>
+          <p class="hero__note">Windows-версия, архив ZIP. Активация выполняется вручную после установки.</p>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Ключевые преимущества">
+        <div>
+          <strong>Finance API</strong>
+          <span>загрузка отчетов с учетом лимитов WB</span>
+        </div>
+        <div>
+          <strong>Excel</strong>
+          <span>готовый файл для проверки и передачи</span>
+        </div>
+        <div>
+          <strong>Кэш</strong>
+          <span>повторные отчеты открываются быстрее</span>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="section__head">
+          <p class="eyebrow">Что внутри</p>
+          <h2>Минимум ручной рутины, максимум сверки</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3>Автоотчет WB</h3>
+            <p>Сводка, детализация, продажи, возвраты, товары и прибыль по товарам в одном интерфейсе.</p>
+          </article>
+          <article>
+            <h3>Точные расходы</h3>
+            <p>Себестоимость товаров, расходы периода, реклама WB, УСН, НДС и ручные налоговые настройки.</p>
+          </article>
+          <article>
+            <h3>WB-периоды</h3>
+            <p>Можно выбирать готовые отчетные периоды WB или задавать диапазон вручную.</p>
+          </article>
+          <article>
+            <h3>Защита от лимитов</h3>
+            <p>Finance API выполняется через очередь, rate limiter и повтор запросов после 429.</p>
+          </article>
+          <article>
+            <h3>Кэш загрузок</h3>
+            <p>Данные сохраняются локально по периоду, типу отчета и кабинету, чтобы не ждать API повторно.</p>
+          </article>
+          <article>
+            <h3>Логи и диагностика</h3>
+            <p>Встроенный раздел логов помогает понять ошибки API, сети и загрузки без передачи токенов.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow" class="section section--muted">
+        <div class="section__head">
+          <p class="eyebrow">Как работает</p>
+          <h2>От периода до Excel за несколько шагов</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <span>1</span>
+            <div>
+              <h3>Добавьте API-ключи</h3>
+              <p>Finance API обязателен, Promotion API можно подключить для рекламы WB.</p>
+            </div>
+          </li>
+          <li>
+            <span>2</span>
+            <div>
+              <h3>Выберите период</h3>
+              <p>Используйте WB-периоды для точной сверки или ручной диапазон для быстрой проверки.</p>
+            </div>
+          </li>
+          <li>
+            <span>3</span>
+            <div>
+              <h3>Загрузите отчет</h3>
+              <p>Программа сама учитывает лимиты API, показывает этапы, строки и прогресс.</p>
+            </div>
+          </li>
+          <li>
+            <span>4</span>
+            <div>
+              <h3>Сохраните Excel</h3>
+              <p>Получите отчет с вкладками для сверки, прибыли, товаров, рекламы и налогов.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="download" class="download">
+        <div>
+          <p class="eyebrow">Версия 1.0</p>
+          <h2>Скачать WB analyst</h2>
+          <p>
+            Скачайте ZIP-архив, распакуйте его в удобную папку и запустите
+            <b>WB analyst v1.0.exe</b>. При первом запуске программа попросит ключ активации.
+          </p>
+        </div>
+        <a class="button button--primary" href="https://github.com/mdorovn-ux/wb_analist/raw/main/releases/WB-analyst-v1.0.zip">Скачать ZIP</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>WB analyst v1.0</span>
+      <span>Финансовая аналитика Wildberries для селлеров</span>
+    </footer>
+  </body>
+</html>

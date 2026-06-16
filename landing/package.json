@@ -1,0 +1,12 @@
+{
+  "name": "wb-analyst-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page for WB analyst",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
