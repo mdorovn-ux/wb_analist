@@ -2,9 +2,9 @@
 
 WB analyst - desktop-приложение для селлеров Wildberries. Программа загружает финансовые отчеты WB, сверяет суммы с кабинетом, считает прибыль, рекламу, себестоимость, налоги, внешние расходы и сохраняет Excel-отчет.
 
-Текущая стабильная версия: `1.1.0`.
+Текущая стабильная версия: `1.1.1`.
 
-Стабильный релиз: `v1.1.0`.
+Стабильный релиз: `v1.1.1`.
 
 ## Структура
 
@@ -21,7 +21,7 @@ tools/                Скрипты публикации релизов
 Стабильная сборка опубликована в GitHub Releases:
 
 ```text
-https://github.com/mdorovn-ux/wb_analist/releases/download/v1.1.0/WB-analyst-v1.1.0.zip
+https://github.com/mdorovn-ux/wb_analist/releases/download/v1.1.1/WB-analyst-v1.1.1.zip
 ```
 
 Релизные ZIP-архивы публикуются в GitHub Releases и доступны по публичной ссылке.
@@ -48,7 +48,7 @@ python -m pytest
 
 ```bash
 cd wb_finance_analyst
-python -m PyInstaller --noconfirm --clean --windowed --paths src --name "WB analyst v1.1.0" --add-data "src\wb_finance_analyst\resources;wb_finance_analyst\resources" main.py
+python -m PyInstaller --noconfirm --clean --windowed --paths src --name "WB analyst v1.1.1" --add-data "src\wb_finance_analyst\resources;wb_finance_analyst\resources" main.py
 ```
 
 После сборки проверьте запуск exe из `dist/`, затем упакуйте папку приложения в ZIP.

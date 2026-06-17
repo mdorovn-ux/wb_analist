@@ -12,6 +12,8 @@ from wb_finance_analyst.services.load_progress import LoadingCancelled
 
 LOGGER = logging.getLogger(__name__)
 
+DIRECT_PROXIES = {"http": None, "https": None}
+
 
 class WBApiError(RuntimeError):
     pass
@@ -54,7 +56,9 @@ class WBApiClient:
             else:
                 self._wait_for_rate_limit(endpoint)
             try:
-                response = requests.request(method, url, headers=headers, timeout=self.timeout, **kwargs)
+                request_kwargs = dict(kwargs)
+                request_kwargs["proxies"] = DIRECT_PROXIES
+                response = requests.request(method, url, headers=headers, timeout=self.timeout, **request_kwargs)
             except requests.RequestException as exc:
                 self._mark_request_finished()
                 if self._retry_network_error(endpoint, attempt, exc):

@@ -4,7 +4,7 @@ from wb_finance_analyst.version import APP_VERSION, DOWNLOAD_PAGE_URL, LATEST_VE
 
 
 def test_version_is_defined_once_for_public_imports():
-    assert APP_VERSION == "1.1.0"
+    assert APP_VERSION == "1.1.1"
     assert __version__ == APP_VERSION
     assert CONSTANTS_APP_VERSION == APP_VERSION
 

@@ -112,3 +112,19 @@ def test_wb_api_client_retries_network_errors_with_short_delay(monkeypatch):
     assert result == {"ok": True}
     assert len(calls) == 2
     assert sleeps == [5]
+
+
+def test_wb_api_client_disables_environment_proxies(monkeypatch):
+    captured = {}
+
+    def fake_request(method, url, headers, timeout, **kwargs):
+        captured.update(kwargs)
+        return FakeResponse(200, "{}")
+
+    monkeypatch.setattr("wb_finance_analyst.services.wb_api_client.requests.request", fake_request)
+    client = WBApiClient(token="secret", base_url="https://finance-api.wildberries.ru")
+
+    result = client.get("/test")
+
+    assert result == {"ok": True}
+    assert captured["proxies"] == {"http": None, "https": None}

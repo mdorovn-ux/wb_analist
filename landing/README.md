@@ -2,12 +2,12 @@
 
 Одностраничный сайт для WB analyst. Лендинг показывает ценность программы, объясняет установку и ведет на ZIP-архив из GitHub Releases.
 
-Текущая стабильная версия: `1.1.0`.
+Текущая стабильная версия: `1.1.1`.
 
 Стабильная ссылка скачивания:
 
 ```text
-https://github.com/mdorovn-ux/wb_analist/releases/download/v1.1.0/WB-analyst-v1.1.0.zip
+https://github.com/mdorovn-ux/wb_analist/releases/download/v1.1.1/WB-analyst-v1.1.1.zip
 ```
 
 Релизные файлы публикуются в GitHub Releases и доступны пользователям по публичной ссылке.

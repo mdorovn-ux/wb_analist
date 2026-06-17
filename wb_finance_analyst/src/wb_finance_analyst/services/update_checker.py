@@ -13,6 +13,7 @@ from wb_finance_analyst.version import APP_VERSION, LATEST_VERSION_URL
 
 GITHUB_CONTENTS_LATEST_URL = "https://api.github.com/repos/mdorovn-ux/wb_analist/contents/latest.json?ref=main"
 UPDATE_CHECK_TIMEOUT = (4, 15)
+DIRECT_PROXIES = {"http": None, "https": None}
 
 
 @dataclass(frozen=True)
@@ -59,6 +60,7 @@ def _request_latest_payload(url: str) -> dict[str, Any]:
             "Accept": "application/json",
             "User-Agent": "WB-analyst-update-check",
         },
+        proxies=DIRECT_PROXIES,
     )
     response.raise_for_status()
     payload = response.json()

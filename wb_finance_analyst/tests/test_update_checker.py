@@ -66,6 +66,7 @@ def test_check_for_updates_uses_github_api_fallback_after_raw_timeout(monkeypatc
     assert len(calls) == 2
     assert calls[1][0] == update_checker.GITHUB_CONTENTS_LATEST_URL
     assert calls[0][1]["timeout"] == update_checker.UPDATE_CHECK_TIMEOUT
+    assert calls[0][1]["proxies"] == {"http": None, "https": None}
     assert info.update_available
     assert info.latest_version == "1.2.0"
 

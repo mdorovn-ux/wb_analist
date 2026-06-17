@@ -52,7 +52,7 @@ class NetworkCheckWorker(QObject):
     @Slot()
     def run(self) -> None:
         try:
-            response = requests.get(self.CHECK_URL, timeout=(1, 1.5))
+            response = requests.get(self.CHECK_URL, timeout=(1, 1.5), proxies={"http": None, "https": None})
             online = response.status_code < 500
             message = "Сеть доступна" if online else f"Сеть недоступна: HTTP {response.status_code}"
             self.finished.emit(online, message)
